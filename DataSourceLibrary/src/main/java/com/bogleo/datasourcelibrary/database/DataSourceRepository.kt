@@ -6,6 +6,10 @@ class DataSourceRepository(
     private  val dsDao: DataSourceDao
 ) {
 
+    suspend fun getAllData(): List<UserState> {
+        return dsDao.getAllData()
+    }
+
     suspend fun getData(): UserState? {
         return dsDao.getData()
     }

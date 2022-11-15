@@ -9,6 +9,9 @@ import com.bogleo.datasourcelibrary.data.UserState
 @Dao
 interface DataSourceDao {
 
+    @Query("SELECT * FROM data_source ORDER BY id ASC")
+    suspend fun getAllData(): List<UserState>
+
     @Query("SELECT * FROM data_source WHERE id = 0")
     suspend fun getData(): UserState?
 
