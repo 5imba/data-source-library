@@ -15,6 +15,6 @@ interface DataSourceDao {
     @Query("SELECT * FROM data_source WHERE id = 1")
     suspend fun getData(): UserState?
 
-    @Insert(onConflict = OnConflictStrategy.ABORT)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addData(userState: UserState)
 }
