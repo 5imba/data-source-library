@@ -1,11 +1,19 @@
 package com.bogleo.datasourcelibrary.data
 
+import android.content.Context
 import androidx.core.net.toUri
+import com.bogleo.datasourcelibrary.database.DataSourceDatabase
+import com.bogleo.datasourcelibrary.database.DataSourceRepository
 import java.util.*
 
 object DataProvider {
 
-    fun createData(
+    fun provideDataSourceRepository(context: Context): DataSourceRepository {
+        val dataSourceDao = DataSourceDatabase.getDatabase(context).dataSourceDao()
+        return DataSourceRepository(dataSourceDao)
+    }
+
+    fun provideData(
         domain: String,
         deep: String,
         data: MutableMap<String, Any>?,
