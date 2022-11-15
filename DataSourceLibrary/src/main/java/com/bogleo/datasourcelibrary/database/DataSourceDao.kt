@@ -12,7 +12,7 @@ interface DataSourceDao {
     @Query("SELECT * FROM data_source ORDER BY id ASC")
     suspend fun getAllData(): List<UserState>
 
-    @Query("SELECT * FROM data_source WHERE id = 0")
+    @Query("SELECT * FROM data_source WHERE id = 1")
     suspend fun getData(): UserState?
 
     @Insert(onConflict = OnConflictStrategy.ABORT)

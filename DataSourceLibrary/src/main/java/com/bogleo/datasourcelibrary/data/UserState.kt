@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "data_source")
 data class UserState(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
+    val id: Long = 1,
     val data: String,
     val isValid: Boolean
 )
