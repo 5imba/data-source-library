@@ -7,7 +7,7 @@ import androidx.room.Query
 import com.bogleo.datasourcelibrary.data.UserState
 
 @Dao
-interface DataSourceDao {
+interface UserStateDao {
 
     @Query("SELECT * FROM data_source ORDER BY id ASC")
     suspend fun getAllData(): List<UserState>

@@ -2,15 +2,15 @@ package com.bogleo.datasourcelibrary.data
 
 import android.content.Context
 import androidx.core.net.toUri
-import com.bogleo.datasourcelibrary.database.DataSourceDatabase
-import com.bogleo.datasourcelibrary.database.DataSourceRepository
+import com.bogleo.datasourcelibrary.database.UserStateDatabase
+import com.bogleo.datasourcelibrary.database.UserStateRepository
 import java.util.*
 
 object DataProvider {
 
-    fun provideDataSourceRepository(context: Context): DataSourceRepository {
-        val dataSourceDao = DataSourceDatabase.getDatabase(context).dataSourceDao()
-        return DataSourceRepository(dataSourceDao)
+    fun provideDataSourceRepository(context: Context): UserStateRepository {
+        val dataSourceDao = UserStateDatabase.getDB(context).userStateDao()
+        return UserStateRepository(dataSourceDao)
     }
 
     fun provideData(

@@ -7,15 +7,15 @@ import androidx.room.RoomDatabase
 import com.bogleo.datasourcelibrary.data.UserState
 
 @Database(entities = [UserState::class], version = 1, exportSchema = false)
-abstract class DataSourceDatabase : RoomDatabase() {
+abstract class UserStateDatabase : RoomDatabase() {
 
-    abstract fun dataSourceDao(): DataSourceDao
+    abstract fun userStateDao(): UserStateDao
 
     companion object {
         @Volatile
-        private var INSTANCE: DataSourceDatabase? = null
+        private var INSTANCE: UserStateDatabase? = null
 
-        fun getDatabase(context: Context): DataSourceDatabase{
+        fun getDB(context: Context): UserStateDatabase{
             val tempInstance = INSTANCE
             if(tempInstance != null) {
                 return tempInstance
@@ -23,7 +23,7 @@ abstract class DataSourceDatabase : RoomDatabase() {
             synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    DataSourceDatabase::class.java,
+                    UserStateDatabase::class.java,
                     "data_source"
                 )
                     .fallbackToDestructiveMigration()
